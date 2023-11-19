@@ -2,29 +2,37 @@
 <head>
 <script type="text/javascript">
 <!--
-function hypotenuse(a, b) {
- function square(x) { return x*x; }
-
- return Math.sqrt(square(a) + square(b));
+function calculateTriangleProperties() {
+  var base = parseFloat(prompt("Ingresa la base del triángulo:"));
+  var altura = parseFloat(prompt("Ingresa la altura del triángulo:"));
+  var hipotenusa = calcularHipotenusa(base, altura);
+  var perimetro = calcularPerimetro(base, altura);
+  var superficie = calcularSuperficie(base, altura);
+  document.write("Hipotenusa: " + hipotenusa + "<br>");
+  document.write("Perímetro: " + perimetro + "<br>" );
+  document.write("Superficie: " + superficie);
 }
-
-function secondFunction(){
- var result;
- result = hypotenuse(4,7); 
- document.write(result); 
+function calcularHipotenusa(base, altura) {
+  return Math.sqrt(base * base + altura * altura);
+}
+function calcularPerimetro(base, altura) {
+  return base + altura + calcularHipotenusa(base, altura);
+}
+function calcularSuperficie(base, altura) {
+  return (base * altura) / 2;
 }
 //-->
 </script>
 <style>
  body {
-background-color: #33FFFC;
+background-color: #A463D4;
 }
 </style>
 </head>
 <body>
-<p>Calcular la Hipotenusa</p>
+<p>Propiedades de un Triángulo</p>
 <form>
-<input type="button" onclick="secondFunction()" value="Resultado">
+<input type="button" onclick="calculateTriangleProperties()" value="Calcular">
 </form>
   <br> <a href="https://copa-matias.github.io/Funciones/">volver</a>
 </body>
